@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 
-# Mod key 
+# Mod key
 set $mod Mod4
 
 
@@ -94,6 +94,9 @@ for_window [class="^dashboard-"] floating disable
 
 # =================================
 
+# Screenshot binds
+bindsym Print exec --no-startup-id screenshot full
+bindsym $mod+Shift+s exec --no-startup-id screenshot area
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

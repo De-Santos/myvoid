@@ -1,0 +1,28 @@
+separator=true
+separator_block_width=15
+
+
+[volume]
+command=pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1
+interval=1
+color=#d8a8a8
+
+[bandwidth]
+command=~/.config/i3blocks/bandwidth
+interval=1
+color=#d8a8a8
+
+[cpu_usage]
+command=~/.config/i3blocks/cpu_usage
+interval=2
+color=#d8a8a8
+
+[memory]
+command=free -h | awk '/^Mem:/ {print ""$3}'
+interval=5
+color=#d8a8a8
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S '
+interval=1
+color=#d8a8a8

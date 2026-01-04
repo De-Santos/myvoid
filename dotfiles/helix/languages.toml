@@ -1,0 +1,31 @@
+[[language]]
+name = "elixir"
+auto-format = true
+language-servers = ["elixir-ls"]
+formatter = { command = "mix", args = ["format", "-"] }
+
+[language-server.elixir-ls]
+command = "/home/misha/.local/share/elixir-ls/language_server.sh"
+
+[language.debugger]
+name = "elixir"
+transport = "stdio"
+command = "/home/misha/.local/share/elixir-ls/debug_adapter.sh"
+
+[[language.debugger.templates]]
+name = "mix test"
+request = "launch"
+completion = [ { name = "task", completion = "filename", default = "test" } ]
+args = { task = "test", taskArgs = ["--trace"], projectDir = "${workspaceRoot}" }
+
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+
+
+[[language]]
+name = "c"
+auto-format = true
+formatter = { command = "clang-format" }

@@ -1,0 +1,47 @@
+general {
+	# colors = true
+	# interval = 5
+	# Цвета (нейтрально-розоватые)
+	color_good = "#d8a8a8"      # светло-розовый
+	color_bad = "#c79595"       # тёмно-розовый
+	color_degraded = "#bfb3b3"  # серо-розовый
+}
+
+order += "volume master"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "cpu_usage"
+order += "memory"
+order += "tztime local"
+
+volume master {
+	format = "vol %volume"
+	format_muted = "muted"
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+}
+
+# wireless _first_ {
+#     format_up = "📶 %essid %quality"
+#     format_down = "📶 down"
+# }
+
+ethernet _first_ {
+	format_up = "eth %speed"
+	format_down = "eth down"
+}
+
+cpu_usage {
+	format = "cpu %usage"
+}
+
+memory {
+	format = "mem %used"
+	threshold_degraded = "10%"
+	format_degraded = "MEMORY LOW: %free"
+}
+
+tztime local {
+	format = "%Y-%m-%d %H:%M:%S "
+}
